@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Glamour Makeup Salon Extras</title>
+  <!-- Ensure this path is correct -->
+  <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
+  <meta name="description" content="Tables, quotes and interactive HTML elements related to Glamour Makeup Salon makeup services." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="canonical" href="https://example.com/extras.html" />
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-header__logo">Glamour Makeup Salon Extras</h1>
+      <nav class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="media.html">Media</a></li>
+          <li><a href="extras.html" aria-current="page">Extras</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container main-grid">
+    <article class="main-content">
+      <header class="page-header">
+        <h2>Makeup Service Details</h2>
+      </header>
+
+      <!-- Wrapper added for responsive overflow on small screens -->
+      <div class="table-wrapper">
+        <table>
+          <caption>Weekly Makeup Service Availability</caption>
+          <thead>
+            <tr>
+              <th scope="col">Day</th>
+              <th scope="col">Makeup Appointments</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Monday</th>
+              <td>8am - 6pm</td>
+            </tr>
+            <tr>
+              <th scope="row">Tuesday</th>
+              <td>9am - 5pm</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row">Note</th>
+              <td>Appointments recommended</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <details class="mb-3">
+        <summary>What makes makeup at Glamour unique?</summary>
+        <p class="mt-4">We use professional-grade products and personalized techniques to highlight your natural beauty.</p>
+      </details>
+
+      <div class="card">
+        <h3>Client Metrics</h3>
+        <p>Makeup session progress:</p>
+        <progress value="80" max="100">80%</progress>
+        <p class="mt-4">Client satisfaction:</p>
+        <meter min="0" max="100" low="30" high="90" optimum="100" value="92">92%</meter>
+      </div>
+
+      <blockquote cite="https://glamour-salon.example.com/testimonials">
+        <p>“The makeup artists are incredible – they made me feel beautiful and confident.”</p>
+        <footer>— <cite>Happy Bride</cite></footer>
+      </blockquote>
+    </article>
+
+    <!-- This page has a simpler layout, so we can omit the sidebar if not needed -->
+    <aside class="sidebar card">
+      <h4>Styling Note</h4>
+      <p class="text-muted">This sidebar demonstrates the two-column grid layout on larger screens, as required by the brief.</p>
+    </aside>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+        <p>&copy; <time datetime="2025">2025</time> Glamour Makeup Salon. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

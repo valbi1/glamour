@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Glamour Makeup Salon Media</title>
+  <!-- The stylesheet link belongs in the <head> of the document -->
+  <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
+  <meta name="description" content="Photos, audio and video showcasing Glamour Makeup Salon's makeup services." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="canonical" href="https://example.com/media.html" />
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-header__logo">Our Media Gallery</h1>
+      <nav class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="media.html" aria-current="page">Media</a></li>
+          <li><a href="extras.html">Extras</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container main-grid">
+    <article class="main-content">
+      <header class="page-header">
+        <h2>Makeup Gallery & Tutorials</h2>
+        <p class="text-muted">A showcase of our work and expertise.</p>
+      </header>
+
+      <div class="media-gallery">
+        <div class="card">
+          <figure>
+            <picture>
+              <!-- Ensure your image paths are correct -->
+              <source srcset="assets/images/html_pic.jpeg" media="(min-width: 50px)">
+              <img src="assets/images/html_pic.jpeg" alt="Client makeup application at Glamour Makeup Salon" />
+            </picture>
+            <figcaption>Client makeup application demonstration</figcaption>
+          </figure>
+        </div>
+
+        <div class="card">
+          <section>
+            <h3>Makeup Tutorial Video</h3>
+            <!-- Removed fixed width to allow CSS to handle responsive sizing -->
+            <video controls poster="assets/images/html_pic_medium.jpeg">
+              <!-- Ensure your video paths are correct -->
+              <source src="assets/videos/html_video.mp4" type="video/mp4" />
+              <source src="assets/videos/html_video.mp4.webm" type="video/webm" />
+              <track src="assets/videos/html_video.mp4.vvt" kind="captions" srclang="en" label="English" default />
+              Sorry, your browser doesn't support embedded videos.
+            </video>
+            <figcaption class="mt-4">Watch our latest tutorial on creating a smokey eye.</figcaption>
+          </section>
+        </div>
+        
+        <div class="card">
+          <section>
+            <h3>Makeup Ambience Audio</h3>
+            <!-- Ensure your audio path is correct -->
+            <audio controls>
+              <source src="assets/sounds/html_audio.mp3" type="audio/mpeg" />
+              Your browser does not support the audio element.
+            </audio>
+            <figcaption class="mt-4">Listen to the relaxing sounds of our salon.</figcaption>
+          </section>
+        </div>
+      </div>
+    </article>
+    
+    <aside class="sidebar card">
+        <h4>Our Media</h4>
+        <p class="text-muted">We regularly update our gallery with new client transformations and tutorials. Follow us on social media to see our latest work!</p>
+    </aside>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <time datetime="2025">2025</time> Glamour Makeup Salon. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

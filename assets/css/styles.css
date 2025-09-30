@@ -1,0 +1,154 @@
+/*
+  ==============================================================
+  Style Sheet: CSS3 + Docker Practical
+  Project:     Glamour Makeup Salon
+  Author:      [Your Name]
+  Version:     1.5.0 (Dusty Rose & Warm Beige Theme)
+  Description: A clean, responsive, and accessible design system
+               adhering to the project brief. No JS.
+  ==============================================================
+
+  TABLE OF CONTENTS
+  -----------------
+  1. DESIGN TOKENS (CSS VARIABLES)
+  2. BASE RESET & RHYTHM
+  3. LAYOUT (HEADER, MAIN GRID, FOOTER)
+  4. TYPOGRAPHY & INLINE SEMANTICS
+  5. COMPONENTS (CARD, TABLE, MEDIA, ETC.)
+  6. UTILITY CLASSES
+  7. STATES & MOTION
+  8. RESPONSIVE RULES
+*/
+
+/* ----------------------------------
+   1. DESIGN TOKENS (CSS VARIABLES)
+   ---------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Poppins:wght@400;500&display=swap');
+
+:root {
+  /* Colors - NEW: "Dusty Rose & Warm Beige" Palette from your example */
+  --bg: #fef9f7;
+  --fg: #413a38;
+  --muted: #6e6462;
+  --brand: #b98b82; /* Dusty Rose */
+  --brand-contrast: #ffffff; /* White provides the cleanest look on the brand color */
+  --border-color: #e2d8d6;
+
+  /* Typography (Unchanged) */
+  --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  
+  /* Modular Type Scale (Unchanged) */
+  --body: 1rem;
+  --h2: 2.441rem;
+  --h1: 3.052rem;
+
+  /* Spacing Scale (Unchanged) */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+}
+
+/* Dark Mode Override - Updated for the new theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1817;
+    --fg: #f0e9e7;
+    --muted: #c0b6b3;
+    --brand: #d3b1a9; /* A lighter dusty rose for dark backgrounds */
+    --brand-contrast: #1c1817;
+    --border-color: #413a38;
+  }
+}
+
+/* ----------------------------------
+   2. BASE RESET & RHYTHM
+   ---------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); font-size: var(--body); color: var(--fg); background-color: var(--bg); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+.container { max-width: 70em; margin-inline: auto; padding-inline: var(--space-3); }
+
+/* ----------------------------------
+   3. LAYOUT
+   ---------------------------------- */
+.site-header { padding-block: var(--space-3); border-bottom: 1px solid var(--border-color); }
+.site-header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-2); }
+.site-header__logo { font-size: 1.5rem; font-family: var(--font-serif); color: var(--brand); }
+.primary-nav ul { list-style: none; display: flex; gap: var(--space-3); }
+.primary-nav a { color: var(--fg); text-decoration: none; font-weight: 500; }
+.primary-nav a[aria-current="page"] { color: var(--brand); font-weight: bold; }
+.main-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-4); padding-block: var(--space-5); }
+.site-footer { padding-block: var(--space-4); border-top: 1px solid var(--border-color); text-align: center; color: var(--muted); }
+
+/* ----------------------------------
+   4. TYPOGRAPHY & INLINE SEMANTICS
+   ---------------------------------- */
+h1, h2, h3, h4, h5 { font-family: var(--font-serif); font-weight: 600; line-height: 1.2; margin-bottom: var(--space-2); color: var(--brand); }
+h1 { font-size: var(--h1); }
+h2 { font-size: var(--h2); }
+p { margin-bottom: var(--space-2); max-width: 65ch; }
+a { color: var(--brand); text-decoration: none; }
+blockquote { border-inline-start: 4px solid var(--brand); padding-inline-start: var(--space-3); margin-block: var(--space-4); font-style: italic; }
+kbd, samp { font-family: var(--font-mono); background-color: var(--border-color); padding: 0.2em 0.4em; border-radius: 4px; }
+mark { background-color: var(--brand); color: var(--brand-contrast); padding: 0.2em; }
+abbr[title] { text-decoration: underline dotted; }
+ul, ol { padding-left: var(--space-3); margin-bottom: var(--space-3); }
+li { margin-bottom: var(--space-1); }
+dl dt { font-weight: 500; color: var(--fg); }
+dl dd { margin-left: var(--space-2); margin-bottom: var(--space-2); color: var(--muted); }
+
+/* ----------------------------------
+   5. COMPONENTS
+   ---------------------------------- */
+.card { background: var(--bg); border: 1px solid var(--border-color); border-radius: 8px; padding: var(--space-4); box-shadow: 0 4px 8px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.table-wrapper { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; margin-bottom: var(--space-4); }
+th, td { padding: var(--space-2); border: 1px solid var(--border-color); text-align: left; }
+th { background-color: var(--brand); color: var(--brand-contrast); }
+tbody tr:nth-child(even) { background-color: var(--border-color); }
+img, video { max-width: 100%; height: auto; border-radius: 4px; width: 100%; }
+/* Set width and explicitly set accent-color to ensure controls are visible */
+audio { width: 100%; accent-color: var(--brand); }
+/* Override inherited color that makes controls invisible in some browsers */
+section audio { color: var(--fg); }
+figcaption { font-size: 0.9rem; color: var(--muted); margin-top: var(--space-1); text-align: center; }
+details { margin-bottom: var(--space-3); }
+summary { cursor: pointer; font-weight: 600; }
+progress, meter { -webkit-appearance: none; -moz-appearance: none; appearance: none; width: 100%; height: var(--space-2); border: 1px solid var(--border-color); border-radius: 100vw; overflow: hidden; }
+progress::-webkit-progress-bar, meter::-webkit-meter-bar { background-color: var(--border-color); }
+progress::-webkit-progress-value, meter::-webkit-meter-optimum-value { background-color: var(--brand); }
+.media-gallery { display: grid; gap: var(--space-4); }
+
+/* ----------------------------------
+   6. UTILITY CLASSES
+   ---------------------------------- */
+.mt-4 { margin-top: var(--space-4) !important; }
+.mb-3 { margin-bottom: var(--space-3) !important; }
+.text-center { text-align: center !important; }
+.text-muted { color: var(--muted) !important; }
+.visually-hidden { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important; }
+
+/* ----------------------------------
+   7. STATES & MOTION
+   ---------------------------------- */
+.skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+.skip-link:focus { position: fixed; top: 10px; left: 10px; z-index: 1000; width: auto; height: auto; padding: var(--space-2); background: var(--brand); color: var(--brand-contrast); }
+a:hover, summary:hover { text-decoration: underline; color: var(--fg); }
+:is(a, button, summary):focus-visible { outline: 3px solid var(--brand); outline-offset: 4px; border-radius: 4px; }
+.card:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+/* ----------------------------------
+   8. RESPONSIVE RULES
+   ---------------------------------- */
+@media (min-width: 768px) {
+  .main-grid { grid-template-columns: 3fr 1fr; }
+  .media-gallery { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .site-header .container { flex-direction: column; align-items: flex-start; }
+  .primary-nav ul { flex-direction: column; gap: var(--space-1); margin-top: var(--space-2); }
+}
